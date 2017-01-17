@@ -5,14 +5,9 @@ Pour passer d'une valeur Farenheit à une valeur Celsius, il faut appliquer la r
 §         Celsius = (Farenheit - 32) * 5/9
 L'algorithme doit lire la température en degrés Farenheit, et l'afficher en Farenheit et en Celsius.
 */////////////////////////////////////////////////////////////
-var Celsius;
-var Farenheit;
-var reponse;
+	reponse = Math.round((temperature - 32) * 5/9);
 
-     Celsius = (Farenheit - 32) * 5/9;
-     reponse = Celsius;
-
-return reponse;
+	return reponse;
 
 }
 var majeur = function(age) {
@@ -21,19 +16,12 @@ var majeur = function(age) {
 §	18 ou plus majeur sinon mineur
 §   var age = integer;
 */////////////////////////////////////////////////////////////
- var age;
- var reponse;
- var majeur;
- var mineur;
-
- if (age > majeur) {
-   age = majeur;
-    
-}else { 
-    age = mineur;
-    reponse = age;
-}
-
+    //ici je met mon code ;)
+    if (age<18){
+    	reponse = "mineur";
+    }else{
+    	reponse = "majeur";
+    }
 
     return reponse;
 }
@@ -44,18 +32,8 @@ var paye = function(vente) {
 §         L'employé reçoit 3% du total des ventes hebdomadaires à prix rabais.
           var vente = {ventesRegulier : 0, ventesRabais : 0};				
 *//////////////////////////////////////////////////////////////
-var reponse;
-var vente;
-var paye;
-const payesemaine = 200;
-const ventesRegulier = 6;
-const ventesRabais  = 3;
-
-vente = ventesRegulier + ventesRabais;
-paye = vente;
-reponse = paye;
-
-
+    
+    reponse = vente.ventesRegulier*6/100+vente.ventesRabais*3/100+200;
 
 
     return reponse;
@@ -66,11 +44,24 @@ var cesar = function(crypto, chaine) {
 §           le mot a codé est dans str 
 §           la clée de chiffrage est cle
 §			la chaine de caractères utilisé pour codé est dans chaine	
-			var crypto = {str : '', cle : 0};	
+			var crypto = {str : '', cle : 0};
+            chaine = "abcdefghijklmnopqrstuvwxyz"
+            crypto.str = "julien"
+            crypto.cle = "3"	
 *////////////////////////////////////////////////////////////////
-    
-    //ici je met mon code ;)
+    reponse = '';//variable reponse chaine de caractère
+
+    for (i=0 ; i <= crypto.str.length-1; i++){ //boucle de la longueur du mot
+        caractere = crypto.str[i]; //prend le caractère
+        index = chaine.indexOf(caractere); //recherche index e caractère dans chaine
+        indexcrypte = index+crypto.cle; //calcul du nouvel index
+        while (indexcrypte > chaine.length-1){ //tant que mon index crypte sois superieur à la longueur des index chaine
+            indexcrypte = indexcrypte - chaine.length; //soustraire la taille de chaine
+        } 
+        reponse += chaine [indexcrypte]; //met dans le nouveau caractère//
+    }
+
+
 
     return reponse;
 }
-
